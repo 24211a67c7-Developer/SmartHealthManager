@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Owner Dashboard</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="navbar">
+  <h1>🏥 Owner Dashboard - <span id="ownerName"></span></h1>
+  <button onclick="logout()">Logout</button>
+</div>
+
+<div class="dashboard">
+
+  <div class="cards-row">
+    <div class="stat-card"><h3 id="statPatients">0</h3><p>Total Patients</p></div>
+    <div class="stat-card"><h3 id="statDoctors">0</h3><p>Active Doctors</p></div>
+    <div class="stat-card"><h3 id="statAppointments">0</h3><p>Total Appointments</p></div>
+    <div class="stat-card"><h3 id="statReports">0</h3><p>Reports Generated</p></div>
+  </div>
+
+  <div class="panel">
+    <h2>Doctors</h2>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Specialty</th><th>Status</th><th>Action</th></tr>
+      </thead>
+      <tbody id="doctorsBody"></tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2>Patients</h2>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Age</th><th>Health Issue</th></tr>
+      </thead>
+      <tbody id="patientsBody"></tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2>All Appointments</h2>
+    <table>
+      <thead>
+        <tr><th>Patient</th><th>Doctor</th><th>Specialty</th><th>Status</th></tr>
+      </thead>
+      <tbody id="appointmentsBody"></tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2>Pharmacy Queue (Pending Medicines)</h2>
+    <table>
+      <thead>
+        <tr><th>Patient</th><th>Doctor</th><th>Medicines</th><th>Action</th></tr>
+      </thead>
+      <tbody id="pharmacyBody"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/owner.js"></script>
+</body>
+</html>
