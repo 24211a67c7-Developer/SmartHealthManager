@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Healthcare Management System - Login</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h2>Healthcare Management System</h2>
+    <p class="subtitle">Sign in or create an account to continue</p>
+
+    <div class="tabs">
+      <button id="tabLogin" class="active" onclick="switchTab('login')">Login</button>
+      <button id="tabRegister" onclick="switchTab('register')">Register</button>
+    </div>
+
+    <!-- ================= LOGIN FORM ================= -->
+    <form id="loginForm">
+      <div class="role-select">
+        <label><input type="radio" name="loginRole" value="patient" checked /><span>Patient</span></label>
+        <label><input type="radio" name="loginRole" value="doctor" /><span>Doctor</span></label>
+        <label><input type="radio" name="loginRole" value="owner" /><span>Owner</span></label>
+      </div>
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit" class="btn-primary">Login</button>
+      <p id="loginMsg" class="msg"></p>
+    </form>
+
+    <!-- ================= REGISTER FORM ================= -->
+    <form id="registerForm" class="hidden">
+      <div class="role-select">
+        <label><input type="radio" name="regRole" value="patient" checked onchange="toggleRoleFields()" /><span>Patient</span></label>
+        <label><input type="radio" name="regRole" value="doctor" onchange="toggleRoleFields()" /><span>Doctor</span></label>
+        <label><input type="radio" name="regRole" value="owner" onchange="toggleRoleFields()" /><span>Owner</span></label>
+      </div>
+
+      <input type="text" id="regName" placeholder="Full Name" required />
+      <input type="email" id="regEmail" placeholder="Email" required />
+      <input type="password" id="regPassword" placeholder="Password" required />
+
+      <!-- Patient-only fields -->
+      <div id="patientFields">
+        <div class="grid-2">
+          <input type="number" id="regAge" placeholder="Age" />
+          <input type="text" id="regHealthIssue" placeholder="Health Issue" />
+        </div>
+        <textarea id="regSymptoms" placeholder="Describe your symptoms" rows="2"></textarea>
+      </div>
+
+      <!-- Doctor-only fields -->
+      <div id="doctorFields" class="hidden">
+        <select id="regSpecialty">
+          <option value="">Select Specialty</option>
+          <option>Cardiologist</option>
+          <option>Neurologist</option>
+          <option>General Surgeon</option>
+          <option>Nephrologist</option>
+          <option>Dermatologist</option>
+          <option>Orthopedic</option>
+          <option>Pediatrician</option>
+          <option>General Physician</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-primary">Register</button>
+      <p id="registerMsg" class="msg"></p>
+    </form>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

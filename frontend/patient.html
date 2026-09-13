@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Patient Dashboard</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="navbar">
+  <h1>👤 Patient Dashboard - <span id="patientName"></span></h1>
+  <button onclick="logout()">Logout</button>
+</div>
+
+<div class="dashboard">
+
+  <!-- Book Appointment -->
+  <div class="panel">
+    <h2>Book an Appointment</h2>
+    <form id="bookForm">
+      <div class="grid-2">
+        <select id="specialtySelect" onchange="loadDoctors()" required>
+          <option value="">Select Specialty</option>
+          <option>Cardiologist</option>
+          <option>Neurologist</option>
+          <option>General Surgeon</option>
+          <option>Nephrologist</option>
+          <option>Dermatologist</option>
+          <option>Orthopedic</option>
+          <option>Pediatrician</option>
+          <option>General Physician</option>
+        </select>
+        <select id="doctorSelect" required>
+          <option value="">Select Doctor</option>
+        </select>
+      </div>
+      <div class="grid-2">
+        <input type="text" id="healthIssueInput" placeholder="Health issue" />
+        <input type="date" id="preferredDate" />
+      </div>
+      <textarea id="symptomsInput" placeholder="Describe your symptoms" rows="2" required></textarea>
+      <button type="submit" class="btn-primary">Book Appointment</button>
+      <p id="bookMsg" class="msg"></p>
+    </form>
+  </div>
+
+  <!-- My Appointments -->
+  <div class="panel">
+    <h2>My Appointments</h2>
+    <table>
+      <thead>
+        <tr><th>Doctor</th><th>Specialty</th><th>Symptoms</th><th>Status</th></tr>
+      </thead>
+      <tbody id="appointmentsBody"></tbody>
+    </table>
+  </div>
+
+  <!-- My Reports -->
+  <div class="panel">
+    <h2>My Medical Reports</h2>
+    <table>
+      <thead>
+        <tr><th>Doctor</th><th>Diagnosis</th><th>Medicines</th><th>Pharmacy</th><th>Date</th></tr>
+      </thead>
+      <tbody id="reportsBody"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/patient.js"></script>
+</body>
+</html>

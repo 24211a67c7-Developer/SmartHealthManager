@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Doctor Dashboard</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="navbar">
+  <h1>🩺 Doctor Dashboard - <span id="doctorName"></span></h1>
+  <div>
+    <button onclick="toggleAvailability()" id="availBtn" style="margin-right:8px;">Toggle Availability</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="dashboard">
+
+  <div class="panel">
+    <h2>My Patient Cases</h2>
+    <table>
+      <thead>
+        <tr><th>Patient</th><th>Age</th><th>Symptoms</th><th>Status</th><th>Actions</th></tr>
+      </thead>
+      <tbody id="casesBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Reassign Modal-ish inline panel -->
+  <div class="panel hidden" id="reassignPanel">
+    <h2>Reassign Case</h2>
+    <input type="hidden" id="reassignAppointmentId" />
+    <select id="reassignDoctorSelect"><option value="">Select doctor</option></select>
+    <input type="text" id="reassignReason" placeholder="Reason (e.g. busy with another case)" />
+    <button class="btn-primary" onclick="submitReassign()">Confirm Reassign</button>
+    <button class="btn-sm" style="background:#e2e8f0;" onclick="closeReassign()">Cancel</button>
+  </div>
+
+  <!-- Report Form -->
+  <div class="panel hidden" id="reportPanel">
+    <h2>Create Medical Report</h2>
+    <input type="hidden" id="reportAppointmentId" />
+    <input type="text" id="reportDiagnosis" placeholder="Diagnosis" required />
+    <textarea id="reportNotes" placeholder="Notes" rows="2"></textarea>
+
+    <h3 style="margin:10px 0;color:#0f766e;">Medicines</h3>
+    <div id="medicineList"></div>
+    <button type="button" class="btn-sm" style="background:#e2e8f0;" onclick="addMedicineRow()">+ Add Medicine</button>
+    <br><br>
+    <button class="btn-primary" onclick="submitReport()">Submit Report</button>
+    <button class="btn-sm" style="background:#e2e8f0;" onclick="closeReport()">Cancel</button>
+    <p id="reportMsg" class="msg"></p>
+  </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/doctor.js"></script>
+</body>
+</html>
